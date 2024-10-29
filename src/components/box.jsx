@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 function Box({name, age}) {
     return (
         <>

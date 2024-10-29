@@ -1,42 +1,55 @@
+/* Global Styles */
 body, html {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
+  background-color: #fafafa;
   display: flex;
   justify-content: center;
-  background-color: #fafafa;
 }
 
+/* Header Styles */
 .header {
   background-color: #ffffff;
   border-bottom: 1px solid #dbdbdb;
   padding: 10px 0;
-  width: 100vw;      
-  position: fixed;   
+  width: 100vw;
+  position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000;     
+  z-index: 1000;
   display: flex;
-  justify-content: center; 
+  justify-content: center;
 }
 
 .header .container {
   width: 100%;
-  max-width: 600px; 
+  max-width: 600px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
 }
 
-.header .logo {
+.logo {
   font-size: 24px;
   font-weight: bold;
   color: #262626;
-  
 }
 
-.header .login-button {
+/* Register Form Styling */
+.register-form {
+  padding: 5px;
+}
+
+.register-form input {
+  padding: 8px;
+  margin-right: 8px;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+}
+
+.register-form button {
   padding: 8px 16px;
   background-color: #0095f6;
   color: white;
@@ -46,40 +59,43 @@ body, html {
   transition: background-color 0.3s;
 }
 
-.header .login-button:hover {
+.register-form button:hover {
   background-color: #007ac1;
 }
 
-
+/* Main Content Styles */
 .centered-container {
   width: 100%;
   max-width: 600px;
- padding-right: 5px;
+  padding: 100px 20px 20px;
   margin: 0 auto;
 }
 
+.main-content {
+  margin-top: 60px;
+}
 
+/* Post Styles */
 .post {
   background-color: #ffffff;
   border: 1px solid #dbdbdb;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   max-width: 500px;
-  margin: 20px auto;
+  margin: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
-
 
 .post-header {
   display: flex;
   align-items: center;
-  padding: 10px 15px;
+  padding: 10px;
   border-bottom: 1px solid #dbdbdb;
 }
 
 .profile-img {
-  width: 32px;     
-  height: 32px;  
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   margin-right: 12px;
 }
@@ -106,10 +122,10 @@ body, html {
   font-size: 16px;
   color: #8e8e8e;
   cursor: pointer;
-  transition: color 0.3s;
   background: none;
   border: none;
   outline: none;
+  transition: color 0.3s;
 }
 
 .like-button:hover {
@@ -130,3 +146,47 @@ body, html {
   font-size: 14px;
   font-weight: 600;
 }
+
+/* Login Message Styling */
+.login-message {
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+}
+
+/* Centered Form Styling */
+.centered-form {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center;
+  padding: 20px; 
+  width: 100%; 
+}
+
+/* Register Form Styling */
+.register-form {
+  padding: 5px;
+}
+
+.register-form input {
+  padding: 8px;
+  margin-right: 8px;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+}
+
+.register-form button {
+  padding: 8px 16px;
+  background-color: #0095f6;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.register-form button:hover {
+  background-color: #007ac1;
+}
+

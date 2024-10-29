@@ -1,55 +1,68 @@
 import { useEffect, useState } from 'react';
-import "./app.css"   
+import './App.css';
 import Post from './components/post';
+import Login from './components/login';
 import Register from './components/register';
 
 function App() {
-  const [arrayOfPictures, setArrayOfPictures] = useState([]);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [arrayOfPictures, setArrayOfPictures] = useState([]); 
+    const [isLoggedIn, setIsLoggedIn] = useState(false); 
 
-  useEffect(() => {
     async function fetchImages() {
-      try {
-        const response = await fetch("https://picsum.photos/v2/list?page=3&limit=25");
-        if (!response.ok) throw new Error("Failed to fetch images");
-        const data = await response.json();
-        setArrayOfPictures(data);
-      } catch (error) {
-        console.error("Error fetching images:", error);
-      }
+        const fetchedImages = await fetch("https://picsum.photos/v2/list?page=3&limit=25");
+        const dataReceived = await fetchedImages.json();
+        setArrayOfPictures(dataReceived);
     }
-    fetchImages();
-  }, []);
 
-  function handleLoginLogout() {
-    setIsLoggedIn(prevState => !prevState);
-  }
+    function loginLogout() {
+        setIsLoggedIn(!isLoggedIn); 
+    }
 
-  return (
-    <div className="centered-container">
-      <header className="header">
-        <div className="container">
-          <h1 className="logo">Instagram Clone</h1>
-          <Register />
-          <button onClick={handleLoginLogout} className="login-button" aria-label={isLoggedIn ? 'Logout' : 'Login'}>
-            {isLoggedIn ? 'Logout' : 'Login'}
-          </button>
+    function handleLogout() {
+        setIsLoggedIn(false); 
+    }
+
+    useEffect(() => {
+        if (isLoggedIn) { 
+            fetchImages(); 
+        }
+    }, [isLoggedIn]); // displays images only when logged in
+
+    return (
+        <div className="app">
+            <div className="centered-container">
+                <header className="header">
+                    <div className="container">
+                        <h1 className="logo">Instagram Clone</h1>
+                        {isLoggedIn && (
+                            <button onClick={handleLogout} className="logout-button">LogOut</button>  //Shows logout button only when logged in
+                        )}
+                    </div>
+                </header>
+                <main className="main-content">
+                    <div className="centered-form"> 
+                        {!isLoggedIn && ( // If not logged in, hide images and show Register and Login components
+                            <>
+                                <Register />
+                                <Login onLogin={loginLogout} /> {/* Pass loginLogout as a prop */}
+                            </>
+                        )}
+                    </div>
+                    {isLoggedIn ? ( // If logged in, display images without login and Register components
+                        <div className="post-grid">
+                            {arrayOfPictures.map((item, index) => (
+                                <Post key={index} url={item.download_url} author={item.author} />
+                            ))}
+                        </div>
+                    ) : ( // If not logged in, show login message
+                        <div className="login-message">
+                            <p>Please log in to view posts</p>
+                        </div>
+                    )}
+                </main>
+            </div>
         </div>
-      </header>
-      <main className="main-content">
-        {isLoggedIn ? (
-          <div className="post-grid">
-            {arrayOfPictures.map((item, index) => (
-              <Post key={index} url={item.download_url} author={item.author} />
-            ))}
-          </div>
-        ) : (
-          <div className="login-message">
-            <p>Please log in to view posts</p>
-          </div>
-        )}
-      </main>
-    </div>
-  );
+    );
 }
+
 export default App;
