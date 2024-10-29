@@ -1,42 +1,132 @@
-#root {
-  max-width: 1280px;
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  background-color: #fafafa;
+}
+
+.header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #dbdbdb;
+  padding: 10px 0;
+  width: 100vw;      
+  position: fixed;   
+  top: 0;
+  left: 0;
+  z-index: 1000;     
+  display: flex;
+  justify-content: center; 
+}
+
+.header .container {
+  width: 100%;
+  max-width: 600px; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.header .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #262626;
+  
+}
+
+.header .login-button {
+  padding: 8px 16px;
+  background-color: #0095f6;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.header .login-button:hover {
+  background-color: #007ac1;
+}
+
+
+.centered-container {
+  width: 100%;
+  max-width: 600px;
+ padding-right: 5px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+
+.post {
+  background-color: #ffffff;
+  border: 1px solid #dbdbdb;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 20px auto;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.post-header {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border-bottom: 1px solid #dbdbdb;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.profile-img {
+  width: 32px;     
+  height: 32px;  
+  border-radius: 50%;
+  margin-right: 12px;
 }
 
-.card {
-  padding: 2em;
+.author-name {
+  font-weight: 600;
+  font-size: 14px;
+  color: #262626;
 }
 
-.read-the-docs {
-  color: #888;
+.post-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.post-footer {
+  padding: 10px 15px;
+}
+
+.like-button {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: #8e8e8e;
+  cursor: pointer;
+  transition: color 0.3s;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.like-button:hover {
+  color: #ff3e3e;
+}
+
+.like-button.liked {
+  color: #ff3e3e;
+}
+
+.heart-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.likes-count {
+  margin-left: 8px;
+  font-size: 14px;
+  font-weight: 600;
 }
