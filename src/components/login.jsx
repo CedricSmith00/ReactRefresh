@@ -15,7 +15,7 @@ import { login } from "../utils/login";
     }
 
     return (
-        <>
+        <div className="forms-style">
         <hr></hr>
         <h2>Login Form</h2>
         <form onSubmit={submitHandler}>
@@ -28,7 +28,7 @@ import { login } from "../utils/login";
             <button type="submit">Login</button>
         </form>
         <hr></hr>
-        </>
+        </div>
     )
 }
 

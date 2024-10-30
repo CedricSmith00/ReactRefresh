@@ -10,15 +10,18 @@ function Register() {
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
     return (
+        <div className="forms-style">
+        <h2>Register Form</h2> 
         <form onSubmit={submitHandler}>
-        <input onChange={(event) => setEmail(event.target.value)}/>
+        <input onChange={(event) => setEmail(event.target.value)} placeholder="Email"/>
         <br></br>
-        <input onChange={(event) => setUsername(event.target.value)}/>
+        <input onChange={(event) => setUsername(event.target.value)} placeholder="Username" />
         <br></br>
-        <input onChange={(event) => setPassword(event.target.value)}/>
+        <input onChange={(event) => setPassword(event.target.value)} placeholder="Password" />
         <br></br>
-        <button type="submit">SUBMIT</button>
+        <button type="submit">Register</button>
     </form>
+    </div>
     )
     
 }

@@ -3,6 +3,7 @@ import './App.css';
 import Post from './components/post';
 import Login from './components/login';
 import Register from './components/register';
+import { ListUsers } from './components/listUsers';
 
 function App() {
     const [arrayOfPictures, setArrayOfPictures] = useState([]); 
@@ -45,6 +46,7 @@ function App() {
                             <>
                                 <Register />
                                 <Login onLogin={loginLogout} /> {/* Pass loginLogout as a prop */}
+                                <ListUsers />
                             </>
                         )}
                     </div>

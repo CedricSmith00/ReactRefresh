@@ -6,6 +6,7 @@ body, html {
   background-color: #fafafa;
   display: flex;
   justify-content: center;
+  color: #262626;
 }
 
 /* Header Styles */
@@ -162,11 +163,13 @@ body, html {
   justify-content: center;
   padding: 20px; 
   width: 100%; 
+  
 }
 
 /* Register Form Styling */
 .register-form {
   padding: 5px;
+
 }
 
 .register-form input {
@@ -190,3 +193,17 @@ body, html {
   background-color: #007ac1;
 }
 
+/* global form syle */
+
+.forms-style {
+  padding-right: 50px;
+
+}
+
+.user-list-style {
+  padding-right: 50px;
+}
+
+.user-button-style {
+  padding-right: 50px;
+}
