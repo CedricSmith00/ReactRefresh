@@ -4,6 +4,7 @@ import Post from './components/post';
 import Login from './components/login';
 import Register from './components/register';
 import { ListUsers } from './components/listUsers';
+import { expireCookie } from './utils/expireCookie';
 
 function App() {
     const [arrayOfPictures, setArrayOfPictures] = useState([]); 
@@ -20,6 +21,7 @@ function App() {
     }
 
     function handleLogout() {
+        expireCookie("jwt_token")
         setIsLoggedIn(false); 
     }
 
@@ -35,6 +37,7 @@ function App() {
                 <header className="header">
                     <div className="container">
                         <h1 className="logo">Instagram Clone</h1>
+                        <ListUsers />
                         {isLoggedIn && (
                             <button onClick={handleLogout} className="logout-button">LogOut</button>  //Shows logout button only when logged in
                         )}
@@ -46,7 +49,6 @@ function App() {
                             <>
                                 <Register />
                                 <Login onLogin={loginLogout} /> {/* Pass loginLogout as a prop */}
-                                <ListUsers />
                             </>
                         )}
                     </div>

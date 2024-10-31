@@ -37,7 +37,7 @@ export function ListUsers() {
         {
             userList.map((item, index)=> {
                 return (
-                    <div>
+                    <div className="user-list-style">
                     <h3>User Email = {item.email}</h3>
                     <h3>Username = {item.username}</h3>
                     </div>

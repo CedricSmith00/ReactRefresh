@@ -19,11 +19,11 @@ import { login } from "../utils/login";
         <hr></hr>
         <h2>Login Form</h2>
         <form onSubmit={submitHandler}>
-            <input onChange={(event) => setEmail(event.target.value)} placeholder="Email" />
+            <input className="inputbox-style" onChange={(event) => setEmail(event.target.value)} placeholder="Email" />
             <br />
-            <input onChange={(event) => setUsername(event.target.value)} placeholder="Username" />
+            <input className="inputbox-style" onChange={(event) => setUsername(event.target.value)} placeholder="Username" />
             <br />
-            <input onChange={(event) => setPassword(event.target.value)} placeholder="Password" />
+            <input className="inputbox-style" onChange={(event) => setPassword(event.target.value)} placeholder="Password" />
             <br />
             <button type="submit">Login</button>
         </form>
